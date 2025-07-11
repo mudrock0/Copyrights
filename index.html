@@ -56,7 +56,7 @@
             transform: translateY(0);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .result-box {
+        .result-box, .assets-box {
             background-color: #f9fafb; /* Gray-50 */
             border: 1px solid #e5e7eb; /* Gray-200 */
             border-radius: 0.75rem; /* 12px */
@@ -65,7 +65,7 @@
             text-align: left;
             min-height: 80px; /* Ensure some height even when empty */
             display: flex;
-            align-items: center;
+            flex-direction: column; /* Allow content to stack */
             justify-content: center;
             font-size: 1.125rem; /* text-lg */
             color: #4b5563; /* Gray-600 */
@@ -83,6 +83,13 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        .asset-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #e5e7eb;
+        }
+        .asset-item:last-child {
+            border-bottom: none;
+        }
     </style>
 </head>
 <body>
@@ -99,6 +106,15 @@
 
         <div id="resultBox" class="result-box">
             <p>Results will appear here...</p>
+        </div>
+
+        <!-- New section for simulated Content ID assets -->
+        <div id="assetsBox" class="assets-box hidden">
+            <h2 class="text-xl font-semibold text-gray-700 mb-4">Content ID Assets (Simulated)</h2>
+            <div id="assetList">
+                <!-- Simulated assets will be injected here by app.js -->
+                <p class="text-gray-500">No assets found for this video (simulated).</p>
+            </div>
         </div>
     </div>
 
